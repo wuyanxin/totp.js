@@ -1,0 +1,30 @@
+{
+  "name": "totp",
+  "version": "0.0.1",
+  "description": "Two-factor authentication implementation in pure javascript. One-time password generator (HOTP/TOTP) with support for Google Authenticator. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuyanxin/totp.js.git"
+  },
+  "keywords": [
+    "otp",
+    "hotp",
+    "totp",
+    "Two-factor authentication",
+    "Google authenticator"
+  ],
+  "author": "wuyanxin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuyanxin/totp.js/issues"
+  },
+  "homepage": "https://github.com/wuyanxin/totp.js#readme",
+  "dependencies": {
+    "jssha": "^2.3.1",
+    "thirty-two": "^1.0.2"
+  }
+}
