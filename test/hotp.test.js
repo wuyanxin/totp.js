@@ -1,5 +1,9 @@
-
-/**
+/*
+ * @Author: wuyanxin
+ * @Date: 2018-03-21 22:25:23
+ * @Last Modified by:   wuyanxin
+ * @Last Modified time: 2018-03-21 22:25:23
+ *
  * Test data from https://tools.ietf.org/html/rfc4226#page-32
  *
  * HOTP Algorithm: Test Values
