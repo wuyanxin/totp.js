@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TOTP.js On Browser</title>
+</head>
+<body>
+
+  <div class="main">
+    <div class="qrcode">
+      <div id="qrcode"></div>
+    </div>
+    <div class="secret-key">
+      <span class="label">Secret Key: </span>
+      <span id="secret"></span>
+    </div>
+    <div class="totp-code">
+      <span class="label">TOTP Code: </span>
+      <span id="totp"></span>
+
+    </div>
+    <div class="totp-ttl">
+      <span class="label">TOTP TTL: </span>
+      <span id="ttl"></span>
+    </div>
+  </div>
+
+  <script src="../dist/totp.min.js"></script>
+  <script src="./arale-qrcode.js"></script>
+  <script>
+    !function main() {
+      var $qrcode = document.getElementById('qrcode');
+      var $secret = document.getElementById('secret');
+      var $totp = document.getElementById('totp');
+      var $ttl = document.getElementById('ttl');
+
+      var key = TOTP.randomKey();
+      var totp = new TOTP(key);
+      var qrnode = new AraleQRCode({
+        size: 128,
+        text: totp.gaURL('handsome@totp.js', 'Totp.js')
+      });
+      $secret.innerHTML = key;
+      $qrcode.appendChild(qrnode);
+
+      function refreshCode() {
+        $totp.innerHTML = totp.genOTP();
+      }
+
+      function startInterval() {
+        setInterval(function () {
+          var ttl = Math.floor(Date.now() / 1000 % 30);
+          $ttl.innerHTML = 30 - ttl;
+          if (ttl === 0) {
+            refreshCode();
+          }
+        }, 1000);
+      }
+
+      /**
+       * 将时间同步到整秒, 再开始轮询
+       */
+      function sync2NextSecond() {
+        var ms2NextSecond = 1000 - (Date.now() % 1000);
+        setTimeout(startInterval, ms2NextSecond);
+      }
+
+      sync2NextSecond();
+      refreshCode();
+
+    }();
+  </script>
+</body>
+</html>
