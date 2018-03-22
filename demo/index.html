@@ -5,24 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TOTP.js On Browser</title>
+  <style>
+    .main {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+      text-align: center;
+      line-height: 2;
+    }
+    .main .preview {
+      text-align: left;
+    }
+    .main .preview .label {
+      display: inline-block;
+      font-weight: bold;
+      width: 100px;
+    }
+    #qrcode {
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
 
   <div class="main">
     <div class="qrcode">
+      Scan  with your Google Authenticator
       <div id="qrcode"></div>
     </div>
-    <div class="secret-key">
-      <span class="label">Secret Key: </span>
-      <span id="secret"></span>
-    </div>
-    <div class="totp-code">
-      <span class="label">TOTP Code: </span>
-      <span id="totp"></span>
 
-    </div>
-    <div class="totp-ttl">
-      <span class="label">TOTP TTL: </span>
+    <div class="preview">
+      <span class="label">Secret Key : </span>
+      <span id="secret"></span><br>
+
+      <span class="label">TOTP Code: </span>
+      <span id="totp"></span><br>
+
+      <span class="label">TOTP TTL : </span>
       <span id="ttl"></span>
     </div>
   </div>

@@ -5,7 +5,11 @@ Two-factor authentication implementation in pure javascript. One-time password g
 [![Node.js >= 8.x](https://img.shields.io/badge/node-%3E%3D8.x-green.svg)](https://nodejs.org)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-## How To Use
+## Live Demo
+[Demo](https://wuyanxin.github.io/totp.js/demo/index.html)
+<iframe src="https://wuyanxin.github.io/totp.js/demo/index.html" frameborder="0" scrolling="0" width="100%" height="300px"></iframe>
+
+## Getting Started
 ### Install
 > `npm i totp.js`
 ### Use
