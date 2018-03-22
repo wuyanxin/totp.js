@@ -6,13 +6,17 @@ Two-factor authentication implementation in pure javascript. One-time password g
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 ## Live Demo
+Preview
+
+![preview](./demo/screenshot.png)
+
 [Demo](https://wuyanxin.github.io/totp.js/demo/index.html)
-<iframe src="https://wuyanxin.github.io/totp.js/demo/index.html" frameborder="0" scrolling="0" width="100%" height="300px"></iframe>
+
 
 ## Getting Started
 ### Install
 > `npm i totp.js`
-### Use
+### Node.js
 ```javascript
 const TOTP = require('totp.js');
 
@@ -36,7 +40,7 @@ totp2.genOTP()
 ```
 ### For Browser
 ```html
-<script src="./dist/totp.min.js"><script>
+<script src="./dist/totp.min.js" />
 <script>
   var key = TOTP.randomKey();
   var totp = new TOTP(key);
