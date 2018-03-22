@@ -1,8 +1,9 @@
-/*
- * @Author: wuyanxin
- * @Date: 2018-03-21 23:12:14
- * @Last Modified by:   wuyanxin
- * @Last Modified time: 2018-03-21 23:12:14
+/*!
+ * Two-factor authentication implementation in pure javascript.
+ * One-time password generator (HOTP/TOTP) with support for Google Authenticator.
+ *
+ * @author   wuyanxin <https://wuyanxin.com>
+ * @license  MIT
  */
 
 var HOTP = require('./lib/hotp')

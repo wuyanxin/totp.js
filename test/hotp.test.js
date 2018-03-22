@@ -1,8 +1,8 @@
 /*
  * @Author: wuyanxin
  * @Date: 2018-03-21 22:25:23
- * @Last Modified by:   wuyanxin
- * @Last Modified time: 2018-03-21 22:25:23
+ * @Last Modified by: wuyanxin
+ * @Last Modified time: 2018-03-22 16:18:13
  *
  * Test data from https://tools.ietf.org/html/rfc4226#page-32
  *
@@ -62,5 +62,9 @@ describe('HOTP', () => {
     assert('162583' === hotp.genOTP(7));
     assert('399871' === hotp.genOTP(8));
     assert('520489' === hotp.genOTP(9));
+  });
+
+  it('google authenticator url', () => {
+    assert(new HOTP(key).gaURL('a', 'b') === `otpauth://hotp/a?issuer=b&secret=${key}`)
   });
 });

@@ -2,7 +2,7 @@
  * @Author: wuyanxin
  * @Date: 2018-03-21 22:25:06
  * @Last Modified by: wuyanxin
- * @Last Modified time: 2018-03-21 23:06:53
+ * @Last Modified time: 2018-03-22 16:17:41
  *
  * Test Vectors
  *
@@ -50,7 +50,7 @@ describe('TOTP', () => {
     Date.now = Date.realNow
   })
 
-  it('on unix time 59s', () => {
+  it('on unix time 59 sec', () => {
     Date.now = () => 59 * 1000;
     assert('94287082' === (new TOTP(key, digit)).genOTP());
   });
@@ -75,4 +75,7 @@ describe('TOTP', () => {
     assert('65353130' === (new TOTP(key, digit)).genOTP());
   });
 
+  it('google authenticator url', () => {
+    assert(new TOTP(key).gaURL('a', 'b') === `otpauth://totp/a?issuer=b&secret=${key}`)
+  });
 });
